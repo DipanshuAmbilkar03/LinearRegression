@@ -12,11 +12,12 @@ st.write("Linear Regression Deployment (Inference Only)")
 hours = st.number_input(
     "Enter Hours Studied",
     min_value=0.0,
-    max_value=15.0,
+    max_value=10.0,
     step=0.5
 )
 
 if st.button("Predict"):
+    # if(hours > 15.0) : st.error("Enter value 15 or lesser")
     grade = model.predict(np.array([[hours]]))[0]
 
     status = "Pass" if grade >= 70 else "Fail"
